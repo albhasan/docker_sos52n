@@ -40,7 +40,7 @@ Scripts for running 52 North's Sensor Observation Service as a docker container.
 			<li>The database name is <code>sos</code> (see the SQL script).</li>
 			<li>The POSTGRES host IP is diplayed by running <code>docker run -it --link some-postgis:postgres --rm postgres sh -c 'exec echo "$POSTGRES_PORT_5432_TCP_ADDR"'</code> </li>
 			<li>The POSTGRES host port is diplayed by running <code>docker run -it --link some-postgis:postgres --rm postgres sh -c 'exec echo "$POSTGRES_PORT_5432_TCP_PORT"'</code></li>
-			<li>The postgres user password is <code>xxxx.xxxx.xxxx</code></li>
+			<li>The postgres user password is <code>postgres</code></li>
 		</ul>
 	</li>
 </ol>

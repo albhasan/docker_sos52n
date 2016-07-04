@@ -13,10 +13,10 @@ docker rm   sos52n
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Start a PostGRES - PostGIS container..."
-docker run --name some-postgis --expose=5432 -e POSTGRES_PASSWORD=xxxx.xxxx.xxxx -d mdillon/postgis
+docker run --name some-postgis --expose=5432 -e POSTGRES_PASSWORD=postgres -d mdillon/postgis
 
 echo "Start a docker tomcat, and load the SOS WAR, and link the container to PostGIS..."
-docker run --name sos52n -p 8080:8080 --link some-postgis:postgres -v $DIR/52n-sos-webapp.war:/usr/local/tomcat/webapps/52n-sos-webapp.war -d tomcat:8.0
+docker run --name sos52n -p 8085:8080 --link some-postgis:postgres -v $DIR/52n-sos-webapp.war:/usr/local/tomcat/webapps/52n-sos-webapp.war -d tomcat:8.0
 
 echo "PostGRESQL IP address..."
 docker run -it --link some-postgis:postgres --rm postgres sh -c 'exec echo "$POSTGRES_PORT_5432_TCP_ADDR"'
