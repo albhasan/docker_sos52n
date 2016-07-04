@@ -3,11 +3,6 @@ echo "#########################################################################"
 echo "SETUP A 52 NORTH SENSOR OBSERVATION SERVICE SERVER USING DOCKER"
 echo "#########################################################################"
 
-docker stop some-postgis
-docker rm   some-postgis
-docker stop sos52n
-docker rm   sos52n
-
 
 # Get the current folder
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -33,5 +28,11 @@ docker run -it --link some-postgis:postgres --rm postgres sh -c 'exec echo "$POS
 #echo 'CREATE DATABASE sos WITH OWNER = postgres ENCODING = UTF8 TEMPLATE = template_postgis;' >> /tmp/sosdb.sql
 # Run the SQL script
 #psql -f /tmp/sosdb.sql
+
+# cleaning
+#docker stop some-postgis
+#docker rm   some-postgis
+#docker stop sos52n
+#docker rm   sos52n
 
 echo "Done! - SOS available at http://localhost:8080/52n-sos-webapp/"

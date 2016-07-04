@@ -35,7 +35,7 @@ Scripts for running 52 North's Sensor Observation Service as a docker container.
 	<li>Create a SQL script in order to create a PostGIS database <code>echo 'CREATE DATABASE sos WITH OWNER = postgres ENCODING = UTF8 TEMPLATE = template_postgis;' >> /tmp/sosdb.sql</code></li>
 	<li>Run the SQL script <code>psql -f /tmp/sosdb.sql</code></li>
 	<li>Get out of the DB container <code>exit</code></li>
-	<li>Finally, the SOS server is available the though the host at <code>http://localhost:8080/52n-sos-webapp/</code>. Go there and follow the SOS's configuration tutorial. You will need the following information:
+	<li>Finally, the SOS server is available the though the host at <code>http://localhost:8085/52n-sos-webapp/</code>. Go there and follow the SOS's configuration tutorial. You will need the following information:
 		<ul>
 			<li>The database name is <code>sos</code> (see the SQL script).</li>
 			<li>The POSTGRES host IP is diplayed by running <code>docker run -it --link some-postgis:postgres --rm postgres sh -c 'exec echo "$POSTGRES_PORT_5432_TCP_ADDR"'</code> </li>
